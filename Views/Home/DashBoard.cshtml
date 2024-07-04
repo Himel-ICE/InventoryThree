@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using InventoryThree.Models
+
+<div class="main-section">
+    <div class="table">
+        <h2>Products table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Number of Product</th>
+                    <th>Entry Date</th>
+                </tr>
+             </thead>
+            <tbody>
+             @{ 
+                 List<Equipment> equipment = Equipment.EquipmentList();
+                 foreach (Equipment obj in equipment)
+                 {
+                     <tr>
+                         <td>@obj.Name</td>
+                         <td>@obj.Count</td>
+                         <td>@obj.DateTime</td>
+                      </tr>
+                 }
+             }
+             </tbody>
+        </table>
+    </div>
+    <div class="table">
+        <h2>Sells table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nmae</th>
+                    <th>Menber Name</th>
+                    <th>Menber Designation</th>
+                    <th>Phone NUmber</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ 
+                    List<Equipment> assignedMember = Equipment.AssignedMemberList();
+                    foreach (Equipment obj in assignedMember)
+                    {
+                         <tr>
+                              <td>@obj.Name</td>
+                              <td>@obj.Member.MemberName</td>
+                              <td>@obj.Member.MemberDesignation</td>
+                              <td>@obj.Member.MemberMobileNumber</td>
+
+
+                         </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
